@@ -46,7 +46,7 @@ class CommandData:
         # basically the output of --help
         parameters_string = " ".join([f"<{parameter}>" for parameter in self.parameters]) if self.parameters else ""
 
-        return f"{self.name} {parameters_string}\n{self.description}{"\nRedirectable: Yes" if self.is_redirectable else ""}\n{"\n".join(str(flag) for flag in self.flags)}" 
+        return f"{self.name} {parameters_string}\n{self.description}{"\nRedirectable: Yes" if self.is_redirectable else ""}\n{"\n".join(str(flag) for flag in self.flags)}{"\n" if self.flags else ""}" 
         # return f"{self.name} {parameters_string}\n{self.description}{"\nRedirectable: Yes" if self.is_redirectable else ""}{"\n\n" if self.flags else ""}{"\n".join(str(flag) for flag in self.flags) if self.flags else ""}" 
 
 
