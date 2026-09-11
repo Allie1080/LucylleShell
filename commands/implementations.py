@@ -23,6 +23,8 @@ ERROR_INVALID_REDIRECT = SyntaxError("Invalid redirect target")
 
 ERROR_LS_PATH_NOT_IMPLEMENTED = SyntaxError("Does not take arguments yet")
 
+ERROR_EXPLAIN_NO_ARGUMENT = SyntaxError("No command to explain")
+
 ERROR_MAKENAMES_INVALID_AMOUNT = SyntaxError("Amount must be a positive integer")
 
 ERROR_ASSESS_NO_ARGUMENT = SyntaxError("Nothing to assess")
@@ -240,7 +242,7 @@ def explain(filesystem: FileSystem, parsed_command: ParsedInput) -> str:
         return "\n".join(sorted(command_masterlist.keys()))
 
     if not parsed_command.arguments:
-        raise ERROR_INVALID_COMMAND
+        raise ERROR_EXPLAIN_NO_ARGUMENT
 
     command_name = parsed_command.arguments[0]
     command_data = command_masterlist.get(command_name)
