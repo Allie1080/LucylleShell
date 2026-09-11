@@ -33,7 +33,7 @@ ERROR_SELFDESTRUCT_MISSING_PASSWORD = SyntaxError("Missing password")
 ERROR_SELFDESTRUCT_INCORRECT_PASSWORD = SyntaxError("Incorrect password")
 ERROR_SELFDESTRUCT_INVALID_TIME = SyntaxError("Armed timer must be a positive integer")
 
-_SELFDESTRUCT_PASSWORD = "goodbyebading"
+_SELFDESTRUCT_PASSWORD = "armed_67"
 
 
 @dataclass
