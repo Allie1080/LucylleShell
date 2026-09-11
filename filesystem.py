@@ -288,7 +288,7 @@ class FileSystem:
             parent_directory[final_key] = text
 
         else:
-            parent_directory[final_key] += text
+            parent_directory[final_key] += '\n' + text
 
     def move_file(self, old_path_to_filename: str, new_path_to_filename: str) -> None:
         # also used to rename files
