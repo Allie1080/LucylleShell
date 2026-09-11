@@ -9,7 +9,7 @@ from commands.data import command_masterlist
 PROMPT = "\033[31mlush> \033[0m"
 
 
-class ShellErrorHandler:
+class ShellErrorMessages:
     @staticmethod
     def invalid_command(command_name: str) -> str:
         return f"No such command: {command_name}"
@@ -48,7 +48,6 @@ def print_error(message: str) -> None:
 
 
 def run_shell(filesystem: FileSystem) -> None:
-
     while True:
         # check_selfdestruct(filesystem)
 
@@ -74,20 +73,20 @@ def run_shell(filesystem: FileSystem) -> None:
             command_data = command_masterlist.get(parsed_command.name)
 
             if command_data is None or not command_data.is_redirectable:
-                print_error(ShellErrorHandler.not_redirectable(parsed_command.name))
+                print_error(ShellErrorMessages.not_redirectable(parsed_command.name))
                 continue
 
         handler = command_handlers.get(parsed_command.name)
 
         if handler is None:
-            print_error(ShellErrorHandler.invalid_command(parsed_command.name))
+            print_error(ShellErrorMessages.invalid_command(parsed_command.name))
             continue
 
         try:
             output = handler(filesystem, parsed_command)
 
         except SyntaxError as error:
-            print_error(ShellErrorHandler.command_error(parsed_command.name, str(error)))
+            print_error(ShellErrorMessages.command_error(parsed_command.name, str(error)))
             continue
 
         if output is None:
@@ -103,7 +102,7 @@ def run_shell(filesystem: FileSystem) -> None:
                     filesystem.write_to_file(output, target)
 
             except SyntaxError as error:
-                print_error(ShellErrorHandler.redirect_error(str(error)))
+                print_error(ShellErrorMessages.redirect_error(str(error)))
 
         else:
             print(output)
