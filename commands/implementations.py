@@ -231,11 +231,12 @@ def assess(filesystem: FileSystem, parsed_command: ParsedInput) -> str:
         expression = " ".join(parsed_command.arguments)
 
     try:
-        return str(eval(expression, {"__builtins__": {}}, {}))
+        return str(eval(expression, {"__builtins__": {'print': print, 'range': range}}, {}))
     
     except Exception as error:
-        raise SyntaxError(f"assess: {error}")
+        raise SyntaxError(error)
 
+'\n'.join([(num+1)*'*' for num in range(0, 5)])
 
 def explain(filesystem: FileSystem, parsed_command: ParsedInput) -> str:
     if "-a" in parsed_command.flags:
