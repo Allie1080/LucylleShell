@@ -236,8 +236,6 @@ def assess(filesystem: FileSystem, parsed_command: ParsedInput) -> str:
     except Exception as error:
         raise SyntaxError(error)
 
-'\n'.join([(num+1)*'*' for num in range(0, 5)])
-
 def explain(filesystem: FileSystem, parsed_command: ParsedInput) -> str:
     if "-a" in parsed_command.flags:
         return "\n".join(sorted(command_masterlist.keys()))
