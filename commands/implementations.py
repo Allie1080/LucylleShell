@@ -307,6 +307,7 @@ def makenames(filesystem: FileSystem, parsed_command: ParsedInput) -> str:
         name_format=name_format,
         amount=amount,
         disable_joke_names=False,
+        include_email_and_password=False,
         delay_in_seconds=0,
         print_names=False # the shell prints it itself
     )
