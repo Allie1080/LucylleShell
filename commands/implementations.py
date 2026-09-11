@@ -21,6 +21,8 @@ ERROR_INVALID_FLAG = SyntaxError("Invalid flag in command")
 ERROR_MISSING_FLAG_ARGUMENT = SyntaxError("A flag is missing an argument")
 ERROR_INVALID_REDIRECT = SyntaxError("Invalid redirect target")
 
+ERROR_LS_PATH_NOT_IMPLEMENTED = SyntaxError("Does not take arguments yet")
+
 ERROR_MAKENAMES_INVALID_AMOUNT = SyntaxError("Amount must be a positive integer")
 
 ERROR_ASSESS_NO_ARGUMENT = SyntaxError("Nothing to assess")
@@ -151,6 +153,9 @@ def ls(filesystem: FileSystem, parsed_command: ParsedInput) -> str:
     show_size: bool
     result_lines: list[str] = []
 
+
+    if parsed_command.arguments:
+        raise ERROR_LS_PATH_NOT_IMPLEMENTED
     
     entries = list(filesystem.list_directory("."))
 
