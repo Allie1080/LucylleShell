@@ -2,13 +2,13 @@
     "/": {
         "home/": {
             "documents/": {
-                "porn/": {},
                 "yourself": ""
             },
             "scripts/": {
-                "addition.lush": "11 * 6 + 1"
+                "addition.lush": "66 + 1"
             },
-            "hello_world": "Hello, World! I wanna kill myself"
+            "hello_world": "Hello, World!",
+            ".mygrades.csv": "1.25, 3\n2.25, 3\n1.00, 3\n1.25, 3\n2.00, 3\n1.75, 3\n1.25, 3\n1.50, 3"
         }
     }
 }
