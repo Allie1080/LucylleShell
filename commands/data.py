@@ -47,7 +47,6 @@ class CommandData:
         parameters_string = " ".join([f"<{parameter}>" for parameter in self.parameters]) if self.parameters else ""
 
         return f"{self.name} {parameters_string}\n{self.description}{"\nRedirectable: Yes" if self.is_redirectable else ""}\n{"\n".join(str(flag) for flag in self.flags)}{"\n" if self.flags else ""}" 
-        # return f"{self.name} {parameters_string}\n{self.description}{"\nRedirectable: Yes" if self.is_redirectable else ""}{"\n\n" if self.flags else ""}{"\n".join(str(flag) for flag in self.flags) if self.flags else ""}" 
 
 
 command_masterlist: dict[str, CommandData] = {}
@@ -182,4 +181,6 @@ command_masterlist["gwac"] = CommandData(
     is_redirectable=True
 )
 
-# [print(command[1], "\n") for command in command_masterlist.items()]
+# [print(command[1], "\n") for command in sorted(command_masterlist.items())]
+
+
